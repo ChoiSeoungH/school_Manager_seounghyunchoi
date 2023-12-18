@@ -1,7 +1,9 @@
+package vo;
+
 public class Subject {
-  private int stuNo;
-  private String subName;
-  private int score;
+  private final int stuNo;
+  private final String subName;
+  private final int score;
 
   public Subject(int stuNo, String subName, int score) {
     this.stuNo = stuNo;

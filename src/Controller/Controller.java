@@ -1,11 +1,17 @@
+package Controller;
+
+import Utils.Utils;
+import dao.StudentDAO;
+import dao.SubjectDAO;
+
 /*
   무조건 파일 업로드 먼저
   처음부터 우리 데이터가 연결된 상태
 
 */
 public class Controller {
-  private StudentDAO stuDAO;
-  private SubjectDAO subDAO;
+  private final StudentDAO stuDAO;
+  private final SubjectDAO subDAO;
 
   public Controller() {
     stuDAO = new StudentDAO();
@@ -14,10 +20,11 @@ public class Controller {
   }
 
   public void run() {
-    outer : while (true) {
+    outer:
+    while (true) {
       mainMenu();
-      int start =0, end =8;
-      int menu = Utils.getValue("메뉴[%d-%d] 입력 >> ".formatted(start,end), start, end);
+      int start = 0, end = 8;
+      int menu = Utils.getValue("메뉴[%d-%d] 입력 >> ".formatted(start, end), start, end);
       switch (menu) {
         case 0:
           System.out.println("종료");
@@ -41,10 +48,10 @@ public class Controller {
           subDAO.printStudentBySubject(stuDAO);
           break;
         case 7:
-          Utils.saveFile(stuDAO,subDAO);
+          Utils.saveFile(stuDAO, subDAO);
           break;
         case 8:
-          Utils.loadFile(stuDAO,subDAO);
+          Utils.loadFile(stuDAO, subDAO);
           break;
       }
 

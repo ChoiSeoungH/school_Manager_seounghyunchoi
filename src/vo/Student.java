@@ -1,7 +1,9 @@
+package vo;
+
 public class Student {
-  private int stuNo;
-  private String stuName;
-  private String stuId;
+  private final int stuNo;
+  private final String stuName;
+  private final String stuId;
 
   public Student(int stuNo, String stuName, String stuId) {
     this.stuNo = stuNo;

@@ -1,3 +1,8 @@
+package Utils;
+
+import dao.StudentDAO;
+import dao.SubjectDAO;
+
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.FileWriter;
@@ -6,8 +11,8 @@ import java.util.Scanner;
 
 public class Utils {
 
-  private static final String CUR_PATH = System.getProperty("user.dir")+"\\src\\";
-  private static Scanner sc = new Scanner(System.in);
+  private static final String CUR_PATH = System.getProperty("user.dir") + "\\src\\";
+  private static final Scanner sc = new Scanner(System.in);
 
   public static String getValue(String msg) {
     System.out.print(msg);

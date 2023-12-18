@@ -1,8 +1,14 @@
+package dao;
+
+import Utils.Utils;
+import vo.Student;
+import vo.Subject;
+
 import java.util.ArrayList;
 import java.util.Random;
 
 public class SubjectDAO {
-  private ArrayList<Subject> subList;
+  private final ArrayList<Subject> subList;
 
   public SubjectDAO() {
     subList = new ArrayList<>();
@@ -29,11 +35,11 @@ public class SubjectDAO {
   }
 
   public void deleteOnesSubject(int stuNo) {
-    int cnt=0;
+    int cnt = 0;
     for (int i = 0; i < subList.size(); i++) {
       if (subList.get(i).getStuNo() == stuNo) {
-        System.out.print(subList.get(i).getSubName()+" "+subList.get(i).getScore()+"점 ");
-        cnt+=1;
+        System.out.print(subList.get(i).getSubName() + " " + subList.get(i).getScore() + "점 ");
+        cnt += 1;
       }
     }
     System.out.println();
@@ -51,7 +57,7 @@ public class SubjectDAO {
     for (int i = 0; i < subList.size(); i++) {
       if (subList.get(i).getStuNo() == stuNo && subList.get(i).getSubName().equals(name)) {
         subList.remove(i);
-        System.out.println(subList.get(i).getSubName()+" "+subList.get(i).getScore()+"점 삭제완료");
+        System.out.println(subList.get(i).getSubName() + " " + subList.get(i).getScore() + "점 삭제완료");
       }
     }
 
@@ -95,6 +101,7 @@ public class SubjectDAO {
     }
     return false;
   }
+
   private boolean findSubjectname(String name) {
     for (Subject sub : subList) {
       if (sub.getSubName().equals(name)) {
@@ -107,17 +114,17 @@ public class SubjectDAO {
   public ArrayList<Double> SortByScore(ArrayList<Student> stuList) {
     ArrayList<Double> avg = new ArrayList<Double>();
     for (Student stu : stuList) {
-      int cnt=0;
-      double score=0.0;
+      int cnt = 0;
+      double score = 0.0;
       for (Subject sub : subList) {
-        if (stu.getStuNo()== sub.getStuNo()) {
-          score += (double)sub.getScore();
-          cnt+=1;
+        if (stu.getStuNo() == sub.getStuNo()) {
+          score += sub.getScore();
+          cnt += 1;
         }
       }
-      if (cnt==0) {
+      if (cnt == 0) {
         avg.add(0.0);
-      }else {
+      } else {
         score /= cnt;
         avg.add(score);
       }
@@ -125,7 +132,6 @@ public class SubjectDAO {
     return avg;
 
   }
-
 
 
   public void printStudentBySubject(StudentDAO stuDAO) {
@@ -136,17 +142,17 @@ public class SubjectDAO {
       return;
     }
 
-    for(Subject sub : subList) {
-      if(sub.getSubName().equals(name)) {
+    for (Subject sub : subList) {
+      if (sub.getSubName().equals(name)) {
         for (Student stu : stuDAO.getStuList()) {
-          if (sub.getStuNo()==stu.getStuNo()) {
+          if (sub.getStuNo() == stu.getStuNo()) {
             list.add(sub.getStuNo());
           }
         }
       }
     }
 
-    if(list.size() == 0) {
+    if (list.size() == 0) {
       System.out.println("해당 과목은 학생 데이터가 없습니다");
       return;
     }
