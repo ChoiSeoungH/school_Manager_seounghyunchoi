@@ -1,5 +1,3 @@
-package School_최승현_ver4;
-
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.FileWriter;
@@ -8,8 +6,7 @@ import java.util.Scanner;
 
 public class Utils {
 
-  private static final String CUR_PATH= System.getProperty("user.dir") + "\\level8\\src\\"
-      + Utils.class.getPackageName() + "\\";
+  private static final String CUR_PATH = System.getProperty("user.dir")+"\\src\\";
   private static Scanner sc = new Scanner(System.in);
 
   public static String getValue(String msg) {

@@ -1,10 +1,8 @@
-package School_최승현_ver4;
 /*
   무조건 파일 업로드 먼저
   처음부터 우리 데이터가 연결된 상태
 
 */
-
 public class Controller {
   private StudentDAO stuDAO;
   private SubjectDAO subDAO;
@@ -15,7 +13,7 @@ public class Controller {
     Utils.loadFile(stuDAO, subDAO);
   }
 
-  void run() {
+  public void run() {
     outer : while (true) {
       mainMenu();
       int start =0, end =8;

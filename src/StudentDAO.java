@@ -1,5 +1,3 @@
-package School_최승현_ver4;
-
 import java.util.ArrayList;
 public class StudentDAO {
   private ArrayList<Student> stuList;

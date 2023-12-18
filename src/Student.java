@@ -1,5 +1,3 @@
-package School_최승현_ver4;
-
 public class Student {
   private int stuNo;
   private String stuName;
